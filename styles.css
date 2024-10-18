@@ -1,4 +1,4 @@
-body {
+body { 
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -10,8 +10,10 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(6, 100px);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-gap: 10px;
+    width: 90%; /* Make the grid responsive to screen size */
+    max-width: 1200px; /* Limit max width */
 }
 
 .grid-item {
@@ -28,4 +30,17 @@ body {
 
 .grid-item:hover {
     background-color: #0056b3;
+}
+
+/* Media queries for further adjustments */
+@media (max-width: 600px) {
+    .grid-item {
+        height: 80px; /* Adjust height for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller grid items */
+    }
 }
